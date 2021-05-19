@@ -63,19 +63,16 @@
 			var d = new Date(datestring);
 			alert (d);
             var Day = 24*60*60*1000;
-			document.getElementById("outputInput").innerHTML = timeSince(d*Day);
+			document.getElementById("outputInput").innerHTML = timeSince(d-3*Day);
         }
 		
 		function timeSince(date) {
 
-            var GivenDate = dateInput;
-            var CurrentDate = "today";
-            let today = new Date();
-
-            if(GivenDate < CurrentDate){
-                alert('The date or time is in the future');
-            }
-
+		  //if(date is future date)
+		  //{
+			//	return date;
+			//}else
+			//{
 			
 			  var seconds = Math.floor((new Date() - date) / 1000);
 
