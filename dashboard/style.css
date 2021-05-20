@@ -153,10 +153,24 @@ h2 {
     background-color: rgb(228, 173, 64);
 }
 
-.yellow > i {
-    
+.fad {
+    --fa-primary-color: #fff;
 }
 
-.fad{
-    --fa-primary-color: white;
+.footer {
+    position: absolute;
+    margin: 0 0 10px 0;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    color: #a6a6a6;
+}
+
+a, .fab {
+    color: #00b4d8;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
