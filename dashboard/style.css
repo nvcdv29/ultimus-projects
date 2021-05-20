@@ -9,10 +9,10 @@
 
 .container {
     width: 90%;
-    margin: 3%;
+    margin: 0 3% 3% 3%;
     padding: 1%;
     background: #dadada;
-    border-radius: 5px;
+    border-radius: 0 0 5px 5px;
 }
 
 
@@ -66,16 +66,19 @@
 }
 
 .box1 {
-    width: 30%;
+    width: 20%;
+    text-align: right;
+    margin-right: 10px;
 }
 
 .box2 {
-    padding-top: 0;
+    /*padding-top: 0;*/
     width: 70%;
+    text-align: left;
 }
 
 .box3 {
-    padding-top: 0;
+    /*padding-top: 0;*/
 }
 
 .box4 {
@@ -83,9 +86,9 @@
 }
 
 .box5 {
-    background-color: ;
     margin:  5px 10px;
     border-radius: 5px;
+    padding-left: 80px;
 }
 
 .green .box5:hover {
@@ -123,6 +126,11 @@ h2 {
 
 .box-heading {
     font-weight: 500;
+    text-align: left;
+}
+
+li {
+    list-style: none;
 }
 
 .green {
@@ -168,7 +176,7 @@ h2 {
     border-radius: 5px 5px 0 0;
 }
 
-a, .fab {
+.footer > a, .fab {
     color: #00b4d8;
     text-decoration: none;
 }
@@ -176,3 +184,26 @@ a, .fab {
 a:hover {
     text-decoration: underline;
 }
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+header {
+    width: 90%;
+    margin: 3% 3% 0 3%;
+    border-radius: 5px 5px 0 0;
+    padding: 1%;
+    background-color: #00abce;
+  }
+
+.login {
+    float: right;
+}
+
+  .fa-building, .fa-user{
+      margin-left: 5px;
+      margin-right: 10px;
+  } 
