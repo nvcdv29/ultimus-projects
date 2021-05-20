@@ -6,7 +6,6 @@
     font-family: 'Poppins';
 }
 
-
 .container {
     width: 90%;
     margin: 0 3% 3% 3%;
@@ -23,11 +22,13 @@
     padding: 15px 0 15px 0;
     width: 32%;
     border-radius: 5px;
+    flex: 1 0 150px;
 }
 
 .element:hover {
+    /*
     transform: scale(1.02);
-    transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out; */
 }
 
 .row1 > .element {
@@ -40,13 +41,15 @@
 
 .row, .box-row {
     display: flex;
+    -js-display: flex;
     flex-direction: row;
     justify-content: space-between;
-    flex: wrap;
+    flex: 1 0 150px;
 }
 
 .box-column {
     display: flex;
+    -js-display: flex;
     flex-direction: column;
     justify-content: space-between;
     flex: wrap;
