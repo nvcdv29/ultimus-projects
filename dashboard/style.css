@@ -10,19 +10,24 @@
 .container {
     width: 90%;
     margin: 5%;
+    padding: 1%;
     background: #dadada;
     border-radius: 5px;
 }
 
 
 .element {
-    background: #ff6600;
     color: #fff;
     text-align: center;
     margin: 10px;
     padding: 15px 0 15px 0;
     width: 32%;
     border-radius: 5px;
+}
+
+.element:hover {
+    transform: scale(1.02);
+    transition: all .2s ease-in-out;
 }
 
 .row1 > .element {
@@ -33,29 +38,125 @@
     height: 350px;
 }
 
-.row {
+.row, .box-row {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     flex: wrap;
 }
 
+.box-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: wrap;
+}
+
+.box-element, .box-element2 {
+    color: #fff;
+    text-align: center;
+}
+
+.box-element {
+    padding: 15px 10px 15px 10px;
+}
+
+.box-element2 {
+    padding: 5px;
+}
+
+.box1 {
+    width: 30%;
+}
+
+.box2 {
+    padding-top: 0;
+    width: 70%;
+}
+
+.box3 {
+    padding-top: 0;
+}
+
+.box4 {
+    width: 50%;
+}
+
+.box5 {
+    background-color: ;
+    margin:  5px 10px;
+    border-radius: 5px;
+}
+
+.green .box5:hover {
+    background-color: #248075;
+    transition: all .2s ease-in-out;
+}
+
+.brightgreen .box5:hover {
+    background-color: #83b878;
+    transition: all .2s ease-in-out;
+}
+
+.person-column {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.person-column:hover {
+    background-color: #009dbd;
+}
+
+.person-name {
+    margin: 15px 0 0 0;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 500;
+}
+
+h2 {
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.box-heading {
+    font-weight: 500;
+}
+
 .green {
     background-color: #2a9d8f;
+}
+.green:hover {
+    background-color: #279184;
 }
 
 .brightgreen {
     background-color: #99d98c;
 }
+.brightgreen:hover {
+    background-color: #94cf88;
+}
 
 .blue {
     background-color: #00b4d8;
+}
+.blue:hover {
+    background-color: #00abce;
 }
 
 .yellow {
     background-color: #fcbf49;
 }
+.yellow:hover {
+    background-color: rgb(228, 173, 64);
+}
 
 .yellow > i {
     
+}
+
+.fad{
+    --fa-primary-color: white;
 }
