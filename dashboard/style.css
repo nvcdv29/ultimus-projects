@@ -161,10 +161,6 @@ li {
     background-color: rgb(228, 173, 64);
 }
 
-.fad {
-    --fa-primary-color: #fff;
-}
-
 .footer {
     position: fixed;
     bottom: 0;
@@ -176,8 +172,8 @@ li {
     border-radius: 5px 5px 0 0;
 }
 
-.footer > a, .fab {
-    color: #00b4d8;
+.footer > a{
+    color: #00abce;
     text-decoration: none;
 }
 
