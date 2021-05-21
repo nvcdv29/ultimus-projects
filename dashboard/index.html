@@ -8,136 +8,199 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
     <link rel="stylesheet" href="https://proicons.netlify.app/css/icons.min.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <script>
+        $(function () {
+
+            $(".item").draggable({
+
+                start: function (event, ui) {
+                    var target = document.getElementById(this.id);
+                    target.style.zIndex = 100;
+                },
+
+                stop: function (event, ui) {
+
+                    var nowPosition = new Object();
+                    var newPosition = new Array();
+
+                    for (var i = 1; i < 6; i++) {
+                        var positionData = getPosition(i);
+                        nowPosition = { 'name': 'item' + i, 'position': positionData };
+
+                        newPosition.push(nowPosition);
+                    }
+
+                    newPosition.sort(function (a, b) {
+                        if (a['position'] > b['position']) return -1;
+                        if (a['position'] < b['position']) return 1;
+                        return 0;
+                    });
+
+                    var number = 0;
+                    for (var i = newPosition.length; i--;) {
+                        console.log(newPosition[i].name);
+
+                        var tmpItem = document.getElementById(newPosition[i].name);
+                        tmpItem.style.order = number;
+                        tmpItem.style.left = 0;
+                        tmpItem.style.top = 0;
+
+                        number++;
+                    }
+
+                    var target = document.getElementById(this.id);
+                    target.style.zIndex = 0;
+                }
+
+            });
+
+            function getPosition(item) {
+                var tmpItem = document.getElementById('item' + item);
+                return tmpItem.offsetLeft;
+            }
+        });
+    </script>
 
 </head>
 
 <body>
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+
 
     <header class="header">
         <a class="brand" style="text-decoration: none"><i class="fad fa-building"></i>The Brand</a>
         <a href="#" class="login" style="text-decoration: none"><i class="fad fa-user"></i>Login</a>
-      </header>
+    </header>
 
-        <div class="container">
-            <div class="row row1">
-                <div class="element item green">
-                    <div class="box-row box1-2">
-                        <div class="box-element box1"><i class="fad fa-envelope-open-text fa-2x"></i></div>
-                        <div class="box-element box2">
-                            <h2>My Tasks</h2>
-                            <h1>76</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="element item yellow">
-                    <div class="box-row">
-                        <div class="box-element box1"><i class="fad fa-exclamation-triangle fa-2x"></i></div>
-                        <div class="box-element box2">
-                            <h2>Overdue Tasks</h2>
-                            <h1>48</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="element item green">
-                    <div class="box-row">
-                        <div class="box-element box1">
-                            <i class="fad fa-bell fa-2x"></i></div>
-                        <div class="box-element box2">
-                            <h2>My Notifications</h2>
-                            <h1>6</h1>
-                        </div>
+    <div class="container">
+        <div class="row row1">
+            <div id="item1" class="element item green">
+                <div class="box-row box1-2">
+                    <div class="box-element box1"><i class="fad fa-envelope-open-text fa-2x"></i></div>
+                    <div class="box-element box2">
+                        <h2>My Tasks</h2>
+                        <h1>76</h1>
                     </div>
                 </div>
             </div>
-
-            <div class="row row2">
-                <div class="element item  brightgreen">
-                    <div class="box-column">
-                        <div class="box-row">
-                            <div class="box-element box1"><i class="fad fa-network-wired fa-rotate-90 fa-2x"></i></div>
-                            <div class="box-element box2">
-                                <h2>Processes</h2>
-                                <h1>51</h1>
-                            </div>
-                        </div>
-
-                        <ul class="box-column">
-                            <li class="box-element2 box5"><h2 class="box-heading">HR <strong>3</strong></h2></li>
-                            <li class="box-element2 box5"><h2 class="box-heading">Accounts <strong>8</strong></h2></li>
-                        </ul>
+            <div id="item2" class="element item yellow">
+                <div class="box-row">
+                    <div class="box-element box1"><i class="fad fa-exclamation-triangle fa-2x"></i></div>
+                    <div class="box-element box2">
+                        <h2>Overdue Tasks</h2>
+                        <h1>48</h1>
                     </div>
                 </div>
-                <div class="element item blue">
-                    <div class="box-column">
-                        <div class="box-element box3">
-                            <h2>My Team</h2>
-                        </div>
-                        <div class="box-row">
-                            <div class="box-element box4">
-                                <div class="person-column">
-                                    <div class="person-card person-icon"><i class="fad fa-user fa-3x"></i></div>
-                                    <div class="person-card person-name">Jane Doe</div>
-                                </div>
-                            </div>
-                            <div class="box-element box4">
-                                <div class="person-column">
-                                    <div class="person-card person-icon"><i class="fad fa-user fa-3x"></i></div>
-                                    <div class="person-card person-name">John Doe</div>
-                                </div>
-                            </div>
-                            <div class="box-element box4">
-                                <div class="person-column">
-                                    <div class="person-card person-icon"><i class="fad fa-user fa-3x"></i></div>
-                                    <div class="person-card person-name">Jane Doe</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-row row3">
-                            <div class="box-element box4">
-                                <div class="person-column">
-                                    <div class="person-card person-icon"><i class="fad fa-user fa-3x"></i></div>
-                                    <div class="person-card person-name">Jane Doe</div>
-                                </div>
-                            </div>
-                            <div class="box-element box4">
-                                <div class="person-column">
-                                    <div class="person-card person-icon"><i class="fad fa-user fa-3x"></i></div>
-                                    <div class="person-card person-name">John Doe</div>
-                                </div>
-                            </div>
-                        </div>
+            </div>
+            <div id="item3" class="element item green">
+                <div class="box-row">
+                    <div class="box-element box1">
+                        <i class="fad fa-bell fa-2x"></i>
                     </div>
-                </div>
-                <div class="element item green">
-                    <div class="box-column">
-                        <div class="box-row">
-                            <div class="box-element box1"><i class="fad fa-comment-exclamation fa-2x"></i></div>
-                            <div class="box-element box2">
-                                <h2>My Requests</h2>
-                                <h1>39</h1>
-                            </div>
-                        </div>
-                        <div class="box-column">
-                            <div class="box-element2 box5"><h2 class="box-heading">In Progress <strong>11</strong></h2></div>
-                            <div class="box-element2 box5"><h2 class="box-heading">Overdue <strong>3</strong></h2></div>
-                            <div class="box-element2 box5"><h2 class="box-heading">Completed <strong>25</strong></h2></div>
-                        </div>
+                    <div class="box-element box2">
+                        <h2>My Notifications</h2>
+                        <h1>6</h1>
                     </div>
                 </div>
             </div>
         </div>
 
+        <div class="row row2">
+            <div id="item4" class="element item brightgreen">
+                <div class="box-column">
+                    <div class="box-row">
+                        <div class="box-element box1"><i class="fad fa-network-wired fa-rotate-90 fa-2x"></i></div>
+                        <div class="box-element box2">
+                            <h2>Processes</h2>
+                            <h1>51</h1>
+                        </div>
+                    </div>
+                    <ul class="box-column">
+                        <li class="box-element2 box5">
+                            <h2 class="box-heading">HR <strong>3</strong></h2>
+                        </li>
+                        <li class="box-element2 box5">
+                            <h2 class="box-heading">Accounts <strong>8</strong></h2>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="item5" class="element item blue">
+                <div class="box-column">
+                    <div class="box-element box3">
+                        <h2>My Team</h2>
+                    </div>
+                    <div class="box-row">
+                        <div class="box-element box4">
+                            <div class="person-column">
+                                <div class="person-card person-icon"><i class="fad fa-user fa-3x"></i></div>
+                                <div class="person-card person-name">Jane Doe</div>
+                            </div>
+                        </div>
+                        <div class="box-element box4">
+                            <div class="person-column">
+                                <div class="person-card person-icon"><i class="fad fa-user fa-3x"></i></div>
+                                <div class="person-card person-name">John Doe</div>
+                            </div>
+                        </div>
+                        <div class="box-element box4">
+                            <div class="person-column">
+                                <div class="person-card person-icon"><i class="fad fa-user fa-3x"></i></div>
+                                <div class="person-card person-name">Jane Doe</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-row row3">
+                        <div class="box-element box4">
+                            <div class="person-column">
+                                <div class="person-card person-icon"><i class="fad fa-user fa-3x"></i></div>
+                                <div class="person-card person-name">Jane Doe</div>
+                            </div>
+                        </div>
+                        <div class="box-element box4">
+                            <div class="person-column">
+                                <div class="person-card person-icon"><i class="fad fa-user fa-3x"></i></div>
+                                <div class="person-card person-name">John Doe</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="item6" class="element item green">
+                <div class="box-column">
+                    <div class="box-row">
+                        <div class="box-element box1"><i class="fad fa-comment-exclamation fa-2x"></i></div>
+                        <div class="box-element box2">
+                            <h2>My Requests</h2>
+                            <h1>39</h1>
+                        </div>
+                    </div>
+                    <ul class="box-column">
+                        <li class="box-element2 box5">
+                            <h2 class="box-heading">In Progress <strong>11</strong></h2>
+                        </li>
+                        <li class="box-element2 box5">
+                            <h2 class="box-heading">Overdue <strong>3</strong></h2>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <div>
         <p class="footer">
-            <i class="fad fa-angle-double-left"></i> <a href="https://60a621747d8bd200074454b8--ultimus-projects.netlify.app/dashboard/" target="blank">Previous Version</a>
-             • <i class="fab fa-github"></i> <a href="https://github.com/nvcdv29/ultimus-projects/tree/main/dashboard" target="_blank">Source Code</a>
-             • Icons by <i class="fab fa-font-awesome"></i> <a href="https://fontawesome.com/" target="_blank">Fontawesome</a> </p>
+            <i class="fad fa-angle-double-left"></i> <a
+                href="https://60a621747d8bd200074454b8--ultimus-projects.netlify.app/dashboard/" target="blank">Previous
+                Version</a>
+            • <i class="fab fa-github"></i> <a href="https://github.com/nvcdv29/ultimus-projects/tree/main/dashboard"
+                target="_blank">Source Code</a>
+            • Icons by <i class="fab fa-font-awesome"></i> <a href="https://fontawesome.com/"
+                target="_blank">Fontawesome</a>
+        </p>
     </div>
 </body>
 
 </html>
-
-
