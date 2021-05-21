@@ -12,7 +12,7 @@ $(function() {
         var nowPosition = new Object();
         var newPosition = new Array();
 
-        for (var i = 1; i < 6; i++) {
+        for (var i = 1; i < 7; i++) {
             var positionData = getPosition(i);
             nowPosition = {'name':'item'+i,'position':positionData};
 
